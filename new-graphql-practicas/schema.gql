@@ -1,0 +1,114 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateDatosMascotaInput {
+  color: String!
+  edad: Int!
+  especie: String!
+  fecha_ingreso: DateTime!
+  nombre: String!
+  raza: String!
+  sexo: String!
+}
+
+input CreateDietaInput {
+  cantidad_diaria: String!
+  horario_comidas: String!
+  mascotaId: Int!
+  restricciones: String!
+  tipo_alimento: String!
+}
+
+input CreateHistorialMedicoInput {
+  diagnosticos: String!
+  fecha_registro: DateTime!
+  mascotaId: Int!
+  tratamientos: String!
+  veterinario: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type DatosMascota {
+  color: String!
+  edad: Int!
+  especie: String!
+  fecha_ingreso: DateTime!
+  historiales: [HistorialMedico!]
+  id: Int!
+  nombre: String!
+  raza: String!
+  sexo: String!
+}
+
+type Dieta {
+  cantidad_diaria: String!
+  horario_comidas: String!
+  id: Int!
+  mascota: DatosMascota!
+  restricciones: String!
+  tipo_alimento: String!
+}
+
+type HistorialMedico {
+  diagnosticos: String!
+  fecha_registro: DateTime!
+  id: Int!
+  mascota: DatosMascota!
+  tratamientos: String!
+  veterinario: String!
+}
+
+type Mutation {
+  createDatosMascota(createDatosMascotaInput: CreateDatosMascotaInput!): DatosMascota!
+  createDieta(createDietaInput: CreateDietaInput!): Dieta!
+  createHistorialMedico(createHistorialMedicoInput: CreateHistorialMedicoInput!): HistorialMedico!
+  removeDatosMascota(id: Int!): Boolean!
+  removeDieta(id: Int!): Boolean!
+  removeHistorialMedico(id: Int!): Boolean!
+  updateDatosMascota(updateDatosMascotaInput: UpdateDatosMascotaInput!): DatosMascota!
+  updateDieta(updateDietaInput: UpdateDietaInput!): Dieta!
+  updateHistorialMedico(updateHistorialMedicoInput: UpdateHistorialMedicoInput!): HistorialMedico!
+}
+
+type Query {
+  datosMascota(id: Int!): DatosMascota!
+  datosMascotas: [DatosMascota!]!
+  dieta(id: Int!): Dieta!
+  dietas: [Dieta!]!
+  historialMedico(id: Int!): HistorialMedico!
+  historialesMedicos: [HistorialMedico!]!
+}
+
+input UpdateDatosMascotaInput {
+  color: String
+  edad: Int
+  especie: String
+  fecha_ingreso: DateTime
+  id: Int!
+  nombre: String
+  raza: String
+  sexo: String
+}
+
+input UpdateDietaInput {
+  cantidad_diaria: String
+  horario_comidas: String
+  id: Int!
+  mascotaId: Int
+  restricciones: String
+  tipo_alimento: String
+}
+
+input UpdateHistorialMedicoInput {
+  diagnosticos: String
+  fecha_registro: DateTime
+  id: Int!
+  mascotaId: Int
+  tratamientos: String
+  veterinario: String
+}
