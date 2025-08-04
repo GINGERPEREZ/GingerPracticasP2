@@ -1,0 +1,140 @@
+{
+  "products": [
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440001",
+      "name": "Camiseta Básica",
+      "description": "Camiseta de algodón 100% con diseño personalizable",
+      "basePrice": 24.99,
+      "category": "camisetas",
+      "imageUrl": "https://example.com/images/tshirt-basic.jpg",
+      "isActive": true,
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-01-15T10:00:00Z"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440002",
+      "name": "Taza Personalizada",
+      "description": "Taza de cerámica con capacidad de 350ml",
+      "basePrice": 12.99,
+      "category": "tazas",
+      "imageUrl": "https://example.com/images/mug-custom.jpg",
+      "isActive": true,
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-01-15T10:00:00Z"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440003",
+      "name": "Libreta Espiral",
+      "description": "Libreta con espiral de 100 hojas rayadas",
+      "basePrice": 8.99,
+      "category": "libretas",
+      "imageUrl": "https://example.com/images/notebook-spiral.jpg",
+      "isActive": true,
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-01-15T10:00:00Z"
+    }
+  ],
+  "customizations": [
+    {
+      "id": "660e8400-e29b-41d4-a716-446655440001",
+      "color": "#FFFFFF",
+      "customText": "Mi Diseño Personal",
+      "customImageUrl": null,
+      "quantity": 2,
+      "customizationPrice": 7.50,
+      "productId": "550e8400-e29b-41d4-a716-446655440001",
+      "createdAt": "2024-01-15T11:00:00Z",
+      "updatedAt": "2024-01-15T11:00:00Z"
+    },
+    {
+      "id": "660e8400-e29b-41d4-a716-446655440002",
+      "color": "#000000",
+      "customText": null,
+      "customImageUrl": "https://example.com/uploads/custom-logo.png",
+      "quantity": 1,
+      "customizationPrice": 8.00,
+      "productId": "550e8400-e29b-41d4-a716-446655440001",
+      "createdAt": "2024-01-15T12:00:00Z",
+      "updatedAt": "2024-01-15T12:00:00Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "770e8400-e29b-41d4-a716-446655440001",
+      "firstName": "Juan",
+      "lastName": "Pérez",
+      "email": "juan.perez@email.com",
+      "phone": "+34 600 123 456",
+      "isActive": true,
+      "createdAt": "2024-01-15T09:00:00Z",
+      "updatedAt": "2024-01-15T09:00:00Z"
+    },
+    {
+      "id": "770e8400-e29b-41d4-a716-446655440002",
+      "firstName": "María",
+      "lastName": "García",
+      "email": "maria.garcia@email.com",
+      "phone": "+34 600 789 012",
+      "isActive": true,
+      "createdAt": "2024-01-15T09:30:00Z",
+      "updatedAt": "2024-01-15T09:30:00Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "880e8400-e29b-41d4-a716-446655440001",
+      "userId": "770e8400-e29b-41d4-a716-446655440001",
+      "status": "confirmed",
+      "paymentMethod": "tarjeta_credito",
+      "subtotal": 57.48,
+      "shippingCost": 0.00,
+      "total": 57.48,
+      "shippingAddress": "Calle Mayor 123",
+      "postalCode": "28001",
+      "city": "Madrid",
+      "country": "España",
+      "createdAt": "2024-01-15T14:00:00Z",
+      "updatedAt": "2024-01-15T14:30:00Z"
+    }
+  ],
+  "order_items": [
+    {
+      "id": "990e8400-e29b-41d4-a716-446655440001",
+      "orderId": "880e8400-e29b-41d4-a716-446655440001",
+      "productId": "550e8400-e29b-41d4-a716-446655440001",
+      "customizationId": "660e8400-e29b-41d4-a716-446655440001",
+      "quantity": 2,
+      "unitPrice": 32.49,
+      "totalPrice": 64.98,
+      "createdAt": "2024-01-15T14:00:00Z",
+      "updatedAt": "2024-01-15T14:00:00Z"
+    }
+  ],
+  "interfaces": {
+    "IProductService": {
+      "create": "CreateProductDto -> ProductResponseDto",
+      "findAll": "void -> ProductResponseDto[]",
+      "findByCategory": "ProductCategory -> ProductResponseDto[]",
+      "findOne": "string -> ProductResponseDto",
+      "update": "string, UpdateProductDto -> ProductResponseDto",
+      "remove": "string -> void",
+      "getProductPrice": "string -> number"
+    },
+    "ICustomizationService": {
+      "create": "CreateCustomizationDto -> CustomizationResponseDto",
+      "findAll": "void -> CustomizationResponseDto[]",
+      "findOne": "string -> CustomizationResponseDto",
+      "findByProduct": "string -> CustomizationResponseDto[]",
+      "update": "string, UpdateCustomizationDto -> CustomizationResponseDto",
+      "remove": "string -> void"
+    },
+    "IOrderService": {
+      "create": "CreateOrderDto -> OrderResponseDto",
+      "findAll": "void -> OrderResponseDto[]",
+      "findByUser": "string -> OrderResponseDto[]",
+      "findOne": "string -> OrderResponseDto",
+      "updateStatus": "string, UpdateOrderStatusDto -> OrderResponseDto",
+      "getOrderSummary": "string -> OrderSummary"
+    }
+  }
+} 
